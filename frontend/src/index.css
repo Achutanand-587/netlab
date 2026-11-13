@@ -1,0 +1,51 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+body{@apply bg-slate-50 text-slate-800 dark:bg-navy-900 dark:text-slate-200 font-sans}
+@layer components{
+.card{@apply rounded-xl border border-slate-200 bg-white p-5 dark:border-white/10 dark:bg-navy-800}
+.input{@apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2 font-mono text-sm outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 dark:border-white/10 dark:bg-navy-950}
+.btn{@apply inline-flex items-center gap-2 rounded-lg bg-cyan-500 px-3 py-2 text-sm font-medium text-navy-950 hover:bg-cyan-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-300}
+.btn-ghost{@apply inline-flex items-center gap-2 rounded-lg border border-slate-300 px-3 py-2 text-sm hover:bg-slate-100 dark:border-white/10 dark:hover:bg-white/5}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.card{transition:transform .2s,border-color .2s,box-shadow .2s}
+.card:hover{transform:translateY(-2px);border-color:#06b6d466;box-shadow:0 8px 30px -12px #06b6d455}
+.page-enter{animation:pageIn .45s cubic-bezier(.2,.8,.2,1) both}
+@keyframes pageIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes flow{to{stroke-dashoffset:-24}}
+@keyframes ping2{0%{r:6;opacity:.8}100%{r:20;opacity:0}}
+@keyframes pop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+.flow{stroke-dasharray:4 8;animation:flow 1.2s linear infinite}
+.splash{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#13264d,#070d1c 70%);transition:opacity .6s,visibility .6s}
+.splash.out{opacity:0;visibility:hidden}
+.bar{height:3px;width:160px;background:#ffffff1a;border-radius:2px;overflow:hidden}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#06b6d4,#3b82f6);animation:load 1.3s ease-out forwards}
+@keyframes load{to{width:100%}}
+/* ---- futuristic layer ---- */
+#root{position:relative;z-index:1}
+h1,h2,.logo,.stat-val{font-family:'Space Grotesk',system-ui,sans-serif}
+.dark body{background:#050a18;background-image:radial-gradient(60% 40% at 10% -5%,#0891b255,transparent),radial-gradient(50% 40% at 95% 0%,#4f46e555,transparent),radial-gradient(40% 30% at 50% 110%,#0e749033,transparent);background-attachment:fixed}
+.dark body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(#22d3ee10 1px,transparent 1px),linear-gradient(90deg,#22d3ee10 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse at 50% 0,#000 25%,transparent 80%)}
+.dark aside{background:#050a18cc;backdrop-filter:blur(12px);border-color:#22d3ee22}
+.dark header{background:#050a1899;backdrop-filter:blur(12px);border-color:#22d3ee22}
+.logo{font-weight:700;letter-spacing:.18em;background:linear-gradient(90deg,#67e8f9,#818cf8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.card{position:relative;background-image:linear-gradient(160deg,#ffffff,#f1f5f9)}
+.dark .card{background-image:linear-gradient(160deg,#0f1b3acc,#0a122499);backdrop-filter:blur(8px);border-color:#22d3ee26}
+.card::before{content:"";position:absolute;inset:-1px;pointer-events:none;border-radius:inherit;opacity:.7;
+ background:linear-gradient(#22d3ee,#22d3ee) top left/14px 2px no-repeat,linear-gradient(#22d3ee,#22d3ee) top left/2px 14px no-repeat,linear-gradient(#22d3ee,#22d3ee) bottom right/14px 2px no-repeat,linear-gradient(#22d3ee,#22d3ee) bottom right/2px 14px no-repeat}
+.card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(320px circle at var(--mx,50%) var(--my,50%),#22d3ee26,transparent 60%)}
+.card:hover::after{opacity:1}
+.btn{background:linear-gradient(135deg,#22d3ee,#3b82f6);color:#04101f;box-shadow:0 0 18px #22d3ee55;transition:box-shadow .2s,transform .2s}
+.btn:hover{box-shadow:0 0 30px #22d3eeaa;transform:translateY(-1px);background:linear-gradient(135deg,#67e8f9,#60a5fa)}
+.btn-ghost{transition:border-color .2s,box-shadow .2s}.btn-ghost:hover{border-color:#22d3ee88;box-shadow:0 0 14px #22d3ee33}
+.input:focus{box-shadow:0 0 0 2px #22d3ee55,0 0 18px #22d3ee33}
+.dark nav a[aria-current=page]{background:linear-gradient(90deg,#22d3ee26,transparent);text-shadow:0 0 12px #22d3ee}
+.stat-val{text-shadow:0 0 18px #22d3ee55}
+.hero-title{background:linear-gradient(90deg,#fff,#67e8f9 55%,#818cf8);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 14px #22d3ee44)}
+.hero{box-shadow:0 0 60px -20px #22d3ee66,inset 0 0 80px -40px #22d3ee55}
+.radar{position:absolute;right:-90px;top:-90px;width:380px;height:380px;border-radius:50%;pointer-events:none;opacity:.55;border:1px solid #22d3ee33;
+ background:conic-gradient(from 0deg,transparent 0 72%,#22d3ee55 100%),repeating-radial-gradient(circle,transparent 0 38px,#22d3ee22 39px 40px);animation:spin 5s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.caret{display:inline-block;width:7px;height:13px;margin-left:3px;vertical-align:-2px;background:#67e8f9;animation:blink 1s steps(2) infinite}
+@keyframes blink{to{opacity:0}}
+.pulse-dot{width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399;animation:pulseDot 1.6s ease-in-out infinite}
+@keyframes pulseDot{50%{opacity:.35;transform:scale(.7)}}
+::-webkit-scrollbar{width:8px;height:8px}::-webkit-scrollbar-thumb{background:#22d3ee44;border-radius:8px}
